@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const homeRouter = require('./routes/home');
 const connect = require('./db/connection');
+const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login");
 
 const main = async () => {
     const app = express();
@@ -22,6 +24,8 @@ const main = async () => {
 
     // Routes
     app.use('/', homeRouter);
+    app.use('/register', registerRouter)
+    app.use('/login', loginRouter)
 
 
     // Listening
