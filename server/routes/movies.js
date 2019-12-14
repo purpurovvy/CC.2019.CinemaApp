@@ -42,10 +42,6 @@ router.get('/title/:title', async (req,res) =>{ //ENDPOINT TO CHECK
     res.send(result);
    });
 
-
-
-
-
 router.get('/get/genres',async (req,res) =>{
 
     async function getGenreOfMovies(){
@@ -61,7 +57,7 @@ router.get('/get/genres',async (req,res) =>{
          result = listOfGenres.filter( function(item,pos){return listOfGenres.indexOf(item)==pos}); //distinct values
          const garbageGenres = ['','N/A'];
          result = result.filter((item)=> (garbageGenres.indexOf(item) === -1)); //remove leftovers
-         console.log(result);
+        //  console.log(result);
          return result;
      }
     

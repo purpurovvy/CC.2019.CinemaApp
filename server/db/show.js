@@ -1,6 +1,7 @@
 const Joi = require('joi');
 const mongoose = require('mongoose');
-const {movieSchema} = require('./movie');
+// const {movieSchema} = require('./movie');
+const {Movie} = require('./movie');
 
 const Show = mongoose.model('Show', new mongoose.Schema({
     startDate: {
@@ -13,10 +14,11 @@ const Show = mongoose.model('Show', new mongoose.Schema({
     },
     
     movie: {
-        type: movieSchema,
+        // type: movieSchema,
+        // required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Movie,
         required: true
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'Movie'
       },
     cast: [{
         room: {
