@@ -1,4 +1,9 @@
 const mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/cinema') //conection to mongoDB; it returns a promise = .then is working
+//     .then(()=> console.log("Connected to MongoDB"))
+//     .catch(err => console.log('Could not connect to mongoDB...',err));
+// const port = process.env.PORT || 3000; //requested after deployment
+// app.listen(port, ()=> console.log(`Listening on port ${port}...`))
 
 const getByMode = (prod, dev) => (process.env.TEST_ENV || process.env.NODE_ENV ? dev : prod);
 
@@ -34,3 +39,5 @@ const connect = (options = defaultOptions) => {
 };
 
 module.exports = connect;
+
+
