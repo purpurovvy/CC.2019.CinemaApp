@@ -9,7 +9,7 @@ const registerRouter = require("./routes/register");
 const loginRouter = require("./routes/login");
 const movies = require("./routes/movies");
 const shows = require("./routes/shows");
-const mongoose = require('mongoose'); // to remove and implement in db connections
+
 
 const main = async () => {
     const app = express();
