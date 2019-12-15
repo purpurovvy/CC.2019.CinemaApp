@@ -1,3 +1,4 @@
+require('dotenv').config({path:'.env'});
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -14,12 +15,7 @@ const main = async () => {
     const app = express();
 
     // Database configuration
-    // await connect();
-    //#####SECTION TO REMOVE AND IMPLEMENT IN DB CONNECTIONS ######
-    mongoose.connect('mongodb://localhost/cinema') //conection to mongoDB; it returns a promise = .then is working
-        .then(()=> console.log("Connected to MongoDB"))
-        .catch(err => console.log('Could not connect to mongoDB...',err));
-    // ###### TO REMOVE #######
+    await connect();
 
     // Global middlewares
     app.use(cookieParser());
