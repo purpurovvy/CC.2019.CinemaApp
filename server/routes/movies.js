@@ -4,46 +4,37 @@ const express = require('express');
 const router = express.Router();
 
 
-// async function getMovies(){   
-//     let movies = await Movie.find()                
-//    return movies;
-// }
-
 router.get('/',async (req,res) =>{
     // let result = await getMovies();
+    console.log(`I'm looking for all movies in DB...`);
     let result = await Movie.find();
     if (!result) //404 
         return  res.status(404).send('The movies were not found')
     res.send(result);
 });
 
-// async function getMoviesByType(type){
-//     console.log('Looking by type...')
-//      let movies = await Movie
-//                 .find({Genre : {$regex:type, $options:"i"}})
-//     return movies;
-// }
 
 router.get('/:type', async (req,res) =>{
-    // console.log(`My type is: ###### : ${req.params.type}`);
-    // let result = await getMoviesByType(req.params.type);
+    console.log(`I'm looking for movies in ${req.params.type} genre`)
     let result = await Movie.find({Genre : {$regex:req.params.type, $options:"i"}})
     if (!result) //404 
         return  res.status(404).send('The movies were not found')
     res.send(result);
    });
 
-router.get('/title/:title', async (req,res) =>{ //ENDPOINT TO CHECK
-    console.log(req.params.type);
-    // let result = await Movie.find({Title : {$regex:req.params.type, $options:"i"}})
-    // if (!result) //404 
-    //     return  res.status(404).send('The movies were not found')
-    let result = req.params.type;
+router.get('/title/:title', async (req,res) =>{ 
+
+    console.log(`I'm looking for movie: ${req.params.title}`);
+
+    let result = await Movie.find({Title : {$regex:req.params.title, $options:"i"}})
+    if (!result) //404 
+        return  res.status(404).send('The movies were not found')
+    
     res.send(result);
    });
 
 router.get('/get/genres',async (req,res) =>{
-
+    console.log(`I'm looking for all available genres...`);
     async function getGenreOfMovies(){
         let result = await Movie.find() // regards CLASS 
                              .select({_id:0, Genre:1, })

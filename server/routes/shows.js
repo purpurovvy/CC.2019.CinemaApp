@@ -6,17 +6,20 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
+    console.log('Looking for available shows...');
     const result = await Show.find().populate('movie').sort('startDate');
     res.send(result);
   });
 
 
 router.get('/plan/:showDate', async (req, res) => {
-    let date = Date.parse(req.params.type);
-    console.log(req.params);
-    console.log(req.params.type);
-    console.log(date);
-    const result = await Show.find().populate('movie').sort('startDate');
+    console.log(`Check what we cast on ${req.params.showDate}...`)
+    let date = new Date(req.params.showDate).toISOString();
+    console.log(`First date: ${date}`);
+      
+    const result = await Show
+                  .find({"cast.castDate" : date})                  
+                  .populate('movie')  
     res.send(result);
   });
 
