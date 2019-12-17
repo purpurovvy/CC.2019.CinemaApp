@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/login', (req, res) => {
-    res.sendFile('../views/login.html');
+  console.error('ToDo...');
+  res.sendStatus(404);
 });
 
 module.exports = router;
