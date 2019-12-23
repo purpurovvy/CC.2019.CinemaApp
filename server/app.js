@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const homeRouter = require('./routes/home');
 const connect = require('./db/connection');
+const initialize = require('./db/initializer');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const moviesRouter = require('./routes/movies');
@@ -16,6 +17,7 @@ const main = async () => {
 
   // Database configuration
   await connect();
+  await initialize();
 
   // Global middlewares
   app.use(helmet());

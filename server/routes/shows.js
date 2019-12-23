@@ -1,4 +1,4 @@
-const { Show } = require('../db/show');
+const { Show } = require('../db/models/show');
 const express = require('express');
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.get('/plan/:showDate', async (req, res) => {
   let date = new Date(req.params.showDate).toISOString();
   console.log(`First date: ${date}`);
 
-  const result = await Show.find({ 'cast.castDate': date }).populate('movie');
+  const result = await Show.find({ startDate: { $gte: date } }).populate('movie');
   res.send(result);
 });
 

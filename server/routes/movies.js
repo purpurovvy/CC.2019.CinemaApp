@@ -1,4 +1,4 @@
-const { Movie } = require('../db/movie');
+const { Movie } = require('../db/models/movie');
 const express = require('express');
 const router = express.Router();
 
