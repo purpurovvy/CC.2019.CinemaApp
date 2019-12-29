@@ -11,6 +11,9 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const moviesRouter = require('./routes/movies');
 const showsRouter = require('./routes/shows');
+var cors = require('cors');
+
+
 
 const main = async () => {
   const app = express();
@@ -30,6 +33,7 @@ const main = async () => {
   );
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(morgan('dev'));
+  app.use(cors({origin: '*'})); //allows any website to get data
 
   // Routes
   app.use('/', homeRouter);

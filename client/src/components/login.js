@@ -1,19 +1,32 @@
 import React, { Component } from "react";
 
+
 export default class Login extends Component {
+
+    state = {
+        email:'',
+        password:''
+    };
+
+    onFormSubmit=(event)=>{
+        event.preventDefault();
+        console.log(this.state);
+    };
+
     render() {
         return (
-            <form>
+            <div>
+            <form onSubmit={this.onFormSubmit}>
                 <h3>Sign In</h3>
 
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" value={this.state.email} onChange={e=>this.setState({email: e.target.value})} className="form-control" placeholder="Enter email"/>
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" value={this.state.password} onChange={e=>this.setState({password: e.target.value})} className="form-control" placeholder="Enter password" />
                 </div>
 
                 <div className="form-group">
@@ -27,6 +40,7 @@ export default class Login extends Component {
                 <p className="forgot-password text-right">Don&apos;t have an account? <a href="/sign-up">Create one</a>.</p>
 
             </form>
+         </div>
         );
     }
 }

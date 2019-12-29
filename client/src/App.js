@@ -7,8 +7,12 @@ import Login from "./components/login";
 import SignUp from "./components/signup";
 import Home from "./components/home";
 
-function App() {
-  return (<Router>
+class App extends React.Component{
+
+render() {
+  return (
+    
+    <Router>
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
@@ -26,18 +30,17 @@ function App() {
         </div>
       </nav>
       
-      <div className="cinemaContainer">
-      
-        <div className="authorizationPanel">
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-          </Switch>
-        </div>
-      </div>
-    </div></Router>
+    <div className="cinemaContainer">
+    
+      <div className="mainContent"><Route exact path='/' component={Home} /></div>
+      <div className="authPanel"><Route path="/sign-in" component={Login} />
+      <Route path="/sign-up" component={SignUp} /></div>     
+     
+    </div>
+
+    </div>
+  </Router>
   );
 }
-
+}
 export default App;
