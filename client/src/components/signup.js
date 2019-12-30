@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import cinemaAPI from "../api/cinemaAPI";
+import cinemaAPI from "../api/cinemaAPI"; //it's an AXIOS with const parameters for cinema servers
 
 export default class SignUp extends Component {
     state = {
@@ -13,12 +13,30 @@ export default class SignUp extends Component {
     onFormSubmit= async (event)=>{
         event.preventDefault();
         console.log(this.state);
-        console.log(this.state.firstName);
-        const response = await cinemaAPI.get(`movies/title/${this.state.firstName}`,{
-            headers: {},
+      
+        const response = await cinemaAPI.post(
+            'register',
+            {
+                "email": this.state.email,
+                "password": this.state.password,
+                "firstName": this.state.firstName,
+                "lastName": this.state.lastName
+            },
+            {headers: { 'Content-Type': 'application/json' }},
                    
-        })
-        console.log(response.data)
+        )
+        .then((response)=>{console.log(response.data)})
+        .catch((error) => {
+            // Error
+            if (error.response) {
+                console.log(error.response.data);
+            } else {
+               console.log(`Something went wrong... ${error.message}`)
+               console.log(error.config);
+            }
+            
+        });
+       
     };
 
     render() {

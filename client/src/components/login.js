@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import cinemaAPI from "../api/cinemaAPI";
 
 export default class Login extends Component {
 
@@ -8,9 +8,32 @@ export default class Login extends Component {
         password:''
     };
 
-    onFormSubmit=(event)=>{
+    onFormSubmit= async (event)=>{
         event.preventDefault();
         console.log(this.state);
+      
+        const response = await cinemaAPI.post(
+            'login',
+            {
+                "email": this.state.email,
+                "password": this.state.password,
+            },
+            {headers: { 'Content-Type': 'application/json' }},
+                           
+        )
+        .then((response)=>{console.log(response.data)})
+        .catch((error) => {
+            // Error
+            if (error.response) {
+                console.log(error.response.data);
+            } else {
+               console.log(`Something went wrong... ${error.message}`)
+               console.log(error.config);
+            }
+            
+        });
+        
+        
     };
 
     render() {
