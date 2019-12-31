@@ -1,0 +1,10 @@
+.seats-container {
+    height: 80%;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr repeat(10, minmax(auto, 45px));
+    grid-template-rows: repeat (5, 45px);
+    place-items: start;
+    grid-gap: 10px;
+    align-items: center;
+}
