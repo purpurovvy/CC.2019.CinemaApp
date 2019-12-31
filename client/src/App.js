@@ -1,7 +1,7 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login";
 import SignUp from "./components/signup";
@@ -12,7 +12,7 @@ class App extends React.Component{
 render() {
   return (
     
-    <Router>
+    <BrowserRouter>
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
@@ -31,15 +31,15 @@ render() {
       </nav>
       
     <div className="cinemaContainer">
-    
-      <div className="mainContent"><Route exact path='/' component={Home} /></div>
-      <div className="authPanel"><Route path="/sign-in" component={Login} />
-      <Route path="/sign-up" component={SignUp} /></div>     
-     
+      <Switch>
+      <Route exact path='/' component={Home} />
+      <Route path="/sign-in" component={Login} />
+      <Route path="/sign-up" component={SignUp} />
+      </Switch>
     </div>
 
     </div>
-  </Router>
+  </BrowserRouter>
   );
 }
 }

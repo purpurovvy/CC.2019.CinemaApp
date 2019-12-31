@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import cinemaAPI from "../api/cinemaAPI";
-
+import "../App.css";
 export default class Login extends Component {
 
     state = {
@@ -38,7 +38,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="authPanel">
             <form onSubmit={this.onFormSubmit}>
                 <h3>Sign In</h3>
 

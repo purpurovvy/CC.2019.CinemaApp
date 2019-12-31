@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import cinemaAPI from "../api/cinemaAPI"; //it's an AXIOS with const parameters for cinema servers
-
+import "../App.css";
 export default class SignUp extends Component {
     state = {
         firstName:'',
@@ -41,7 +41,7 @@ export default class SignUp extends Component {
 
     render() {
         return (
-            
+            <div className="authPanel">
             <form onSubmit={this.onFormSubmit}>
                 <h3>Sign Up</h3>
 
@@ -70,7 +70,7 @@ export default class SignUp extends Component {
                     Already registered <a href="sign-in">log in?</a>
                 </p>
             </form>
-           
+            </div>
         );
     }
 }
