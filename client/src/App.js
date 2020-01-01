@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/login";
 import SignUp from "./components/signup";
 import Home from "./components/home";
+import MyAccount from "./components/myaccount";
 
 class App extends React.Component{
 
@@ -25,6 +26,9 @@ render() {
               <li className="nav-item">
                 <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/my-account"}>My account</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -34,7 +38,8 @@ render() {
     
       <div className="mainContent"><Route exact path='/' component={Home} /></div>
       <div className="authPanel"><Route path="/sign-in" component={Login} />
-      <Route path="/sign-up" component={SignUp} /></div>     
+      <Route path="/sign-up" component={SignUp} />
+      <Route path="/my-account" component={MyAccount} /> </div>     
      
     </div>
 
