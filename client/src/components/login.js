@@ -21,7 +21,7 @@ export default class Login extends Component {
             {headers: { 'Content-Type': 'application/json' }},
                            
         )
-        .then((response)=>{localStorage.setItem('userJWT', response.data)})
+        .then((response)=>{localStorage.setItem('x-auth-token', response.data)})
         .catch((error) => {
             // Error
             if (error.response) {
