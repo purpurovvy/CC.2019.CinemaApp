@@ -33,7 +33,7 @@ const main = async () => {
   );
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(morgan('dev'));
-  app.use(cors({origin: '*'})); //allows any website to get data
+  app.use(cors({ origin: '*' })); //allows any website to get data
 
   // Routes
   app.use('/', homeRouter);
