@@ -22,7 +22,7 @@ export default class Login extends Component {
 
         )
             .then((response) => { 
-                console.log(response);
+                // console.log(response);
                 localStorage.setItem('userJWT', response.data);
                 if (response.status === 200){
                     this.props.history.push("/");
