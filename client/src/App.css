@@ -98,3 +98,27 @@ border-color:  #0062cc;
 .forgot-password a {
   color: #1154ac;
 }
+
+.flex-container {
+  display:flex;
+  flex-wrap: wrap;
+  /* margin-top: 60px; */
+}
+
+.box1 {
+  flex: auto;
+  width: 400px;
+  border: aquamarine;
+  background-color: cadetblue;
+  margin: 10px;
+  padding: 10px;
+  } 
+
+.box2 {
+  flex: auto;
+  width: 400px;
+  border: aquamarine;
+  background-color: coral;
+  margin: 10px;
+  padding: 10px;
+  }
