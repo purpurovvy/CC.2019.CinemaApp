@@ -40,7 +40,7 @@ export default class Wallet extends Component {
     render() {
         return (
 
-            <div>
+            <div className="mainContent">
 
             <h3>My Account</h3>
         
