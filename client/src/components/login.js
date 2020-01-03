@@ -21,7 +21,6 @@ export default class Login extends Component {
             { headers: { 'Content-Type': 'application/json' } },
 
         )
-<<<<<<< HEAD
             .then((response) => { localStorage.setItem('userJWT', response.data) })
             .catch((error) => {
                 // Error
@@ -35,21 +34,6 @@ export default class Login extends Component {
             });
 
 
-=======
-        .then((response)=>{localStorage.setItem('x-auth-token', response.data)})
-        .catch((error) => {
-            // Error
-            if (error.response) {
-                console.log(error.response.data);
-            } else {
-               console.log(`Something went wrong... ${error.message}`)
-               console.log(error.config);
-            }
-            
-        });
-        
-        
->>>>>>> 087f9f03b1e32fcbbaee699c54da63b98e6f2fc4
     };
 
     render() {
