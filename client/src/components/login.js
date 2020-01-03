@@ -10,8 +10,8 @@ export default class Login extends Component {
 
     onFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(this.state);
-
+        // console.log(this.state);
+       
         const response = await cinemaAPI.post(
             'login',
             {
@@ -21,7 +21,14 @@ export default class Login extends Component {
             { headers: { 'Content-Type': 'application/json' } },
 
         )
-            .then((response) => { localStorage.setItem('userJWT', response.data) })
+            .then((response) => { 
+                console.log(response);
+                localStorage.setItem('userJWT', response.data);
+                if (response.status === 200){
+                    this.props.history.push("/");
+                    console.log('Successfully Registered.');
+                } })
+
             .catch((error) => {
                 // Error
                 if (error.response) {
@@ -31,8 +38,8 @@ export default class Login extends Component {
                     console.log(error.config);
                 }
 
-            });
-
+            });               
+    
 
     };
 
