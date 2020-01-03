@@ -8,11 +8,10 @@ export default class SignUp extends Component {
         email:'',
         password:''
     };
-   
-    // some tests with node.js
+  
     onFormSubmit= async (event)=>{
         event.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
       
         const response = await cinemaAPI.post(
             'register',
@@ -25,7 +24,11 @@ export default class SignUp extends Component {
             {headers: { 'Content-Type': 'application/json' }},
                    
         )
-        .then((response)=>{console.log(response.data)})
+        .then((response)=>{
+            if (response.status === 200){
+                this.props.history.push("/sign-in");
+                console.log('Successfully Registered.');
+            }})
         .catch((error) => {
             // Error
             if (error.response) {

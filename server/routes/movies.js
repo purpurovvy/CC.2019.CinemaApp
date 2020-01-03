@@ -1,9 +1,11 @@
+const admin = require('../middleware/admin');
+const auth = require('../middleware/auth');
 const { Movie } = require('../db/models/movie');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  // let result = await getMovies();
+
   console.log(`I'm looking for all movies in DB...`);
   let result = await Movie.find();
   if (!result)
@@ -12,7 +14,7 @@ router.get('/', async (req, res) => {
   res.send(result);
 });
 
-router.get('/:type', async (req, res) => {
+router.get('/:type',[auth, admin], async (req, res) => { //implemented auth and admin middlewares for testing
   console.log(`I'm looking for movies in ${req.params.type} genre`);
   let result = await Movie.find({ Genre: { $regex: req.params.type, $options: 'i' } });
   if (!result)

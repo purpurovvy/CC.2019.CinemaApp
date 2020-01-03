@@ -27,8 +27,6 @@ router.get('/:id', async (req, res) => {
   res.send(show);
 });
 router.get ('/:id/seats', async (req, res) => {
-  // const show = await Show.findById(req.params.id);
-  // if(!show) return res.status(400).send('Invalid show id');
 
   const show = await Show.findById(req.params.id) 
     

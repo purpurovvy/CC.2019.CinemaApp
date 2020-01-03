@@ -11,6 +11,7 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const moviesRouter = require('./routes/movies');
 const showsRouter = require('./routes/shows');
+const userRouter = require('./routes/user')
 var cors = require('cors');
 
 
@@ -33,7 +34,7 @@ const main = async () => {
   );
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(morgan('dev'));
-  app.use(cors({origin: '*'})); //allows any website to get data
+  app.use(cors({ origin: '*' })); //allows any website to get data
 
   // Routes
   app.use('/', homeRouter);
@@ -41,6 +42,7 @@ const main = async () => {
   app.use('/api/login', loginRouter);
   app.use('/api/movies', moviesRouter);
   app.use('/api/shows', showsRouter);
+  app.use('/api/user',userRouter);
 
   // Listening
   const host = process.env.HOST || '127.0.0.1';
