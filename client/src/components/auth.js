@@ -1,46 +1,24 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 
-const getDisplayName = (WrappedComponent) => {
-    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
-
-const withAuth = (WrappedComponent, fallbackPath) => {
+const withAuth = (WrappedComponent, fallbackAction) => {
     class WithAuth extends React.Component {
-        state = {
-            token: null
-        }
-
-        requireToken = () => {
-            const token = localStorage.getItem('userJWT');
-            if (!token) {
-                this.props.history.push(fallbackPath);
-            } else if (token !== this.state.token) {
-                this.setState({ token });
-            }
-        }
-
-        componentDidMount() {
-            this.requireToken();
-        }
-
-        componentDidUpdate() {
-            this.requireToken();
-        }
-
         render() {
-            const token = this.state.token;
+            const token = localStorage.getItem('userJWT');
             if (token) {
                 const props = { ...this.props, token };
                 return <WrappedComponent {...props} />;
             }
             else {
-                return <div />;
+                return fallbackAction();
             }
         }
     }
-    WithAuth.displayName = `WithAuth(${getDisplayName(WrappedComponent)})`;
+    WithAuth.displayName = `WithAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
 
     return WithAuth
 }
 
-export { withAuth };
+const withAuthDefault = (WrappedComponent) => withAuth(WrappedComponent, () => <Redirect to="/sign-in" />);
+
+export { withAuth, withAuthDefault };
