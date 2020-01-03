@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Protected = (props) => {
-    return <div>Hello {props.token}</div>
+    return <div className="mainContent">Hello {props.token}</div>
 }
 
 
