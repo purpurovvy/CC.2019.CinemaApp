@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import "../App.css";
+
+import MovieList from "./MovieList";
+
 export default class Home extends Component {
     render() {
         return (
          <div className="mainContent"> 
-                <h3>Hello there in best cinema ever !! :)</h3>
-               
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
+               <MovieList/>
          </div>
         );
     }
