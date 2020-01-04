@@ -18,7 +18,7 @@ export default class MovieList  extends Component {
     }
 
     renderMovieItem(movie){
-        return <li key={movie.id}>
+        return <li key={movie._id}>
             <div>{movie.Title}</div>
             <img src={movie.Poster}/>
         </li>
