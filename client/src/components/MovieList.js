@@ -20,7 +20,7 @@ export default class MovieList  extends Component {
     renderMovieItem(movie){
         return <li key={movie.id}>
             <div>{movie.Title}</div>
-            <img src={movie.Poster} style={{width: '200px'}}/>
+            <img src={movie.Poster}/>
         </li>
     }
 

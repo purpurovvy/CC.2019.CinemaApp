@@ -8,13 +8,6 @@ export default class Home extends Component {
         return (
          <div className="mainContent"> 
                <MovieList/>
-               <MovieList/>
-               <MovieList/>
-               <MovieList/>
-               <MovieList/>
-               <MovieList/>
-               <MovieList/>
-               <MovieList/>
          </div>
         );
     }
