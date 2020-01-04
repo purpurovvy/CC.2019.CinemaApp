@@ -8,7 +8,6 @@ export default class MovieList  extends Component {
         this.state = {movies: []};
     }
 
-
     componentDidMount(prevProps, rpevState) {
         api.get('/movies').then(response=> {
             this.setState({

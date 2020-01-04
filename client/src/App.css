@@ -47,6 +47,33 @@ body, html, .App, #root, .cinemaContainer {
   height: 100%;
 }
 
+form {
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type=date] {
+  color: black;
+  padding: 13px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid grey
+}
+
+input[type=submit] {
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: grey solid 1px;
+}
+
 .btn-primary {
 color: #fff;
 background-color:#007bff;
