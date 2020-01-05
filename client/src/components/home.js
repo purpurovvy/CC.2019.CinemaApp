@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import "../App.css";
+import MovieList from "./MovieList";
+import DatePicker from "./DatePicker";
+
+
+
+
 export default class Home extends Component {
     render() {
         return (
-         <div className="mainContent"> 
-                <h3>Hello there in best cinema ever !! :)</h3>
-               
-         </div>
+            <div className="mainContent">
+                <DatePicker />
+                <MovieList />
+            </div>
         );
     }
 }

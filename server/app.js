@@ -12,7 +12,6 @@ const loginRouter = require('./routes/login');
 const moviesRouter = require('./routes/movies');
 const showsRouter = require('./routes/shows');
 const userRouter = require('./routes/user')
-const ticketRouter = require('./routes/ticket')
 var cors = require('cors');
 
 
@@ -44,7 +43,6 @@ const main = async () => {
   app.use('/api/movies', moviesRouter);
   app.use('/api/shows', showsRouter);
   app.use('/api/user',userRouter);
-  app.use('/api/ticket', ticketRouter);
 
   // Listening
   const host = process.env.HOST || '127.0.0.1';
