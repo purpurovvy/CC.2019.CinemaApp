@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { User } = require('./user');
+const {ScreeningRoom} = require('./screening-room')
 
 const TicketType = Object.freeze({ TICKET: 'ticket', RESERVATION: 'reservation' });
 const TicketStatus = Object.freeze({ PENDING: 'pending', REALIZED: 'realized' });
@@ -15,7 +16,7 @@ const schema = new mongoose.Schema({
     default: TicketStatus.PENDING,
   },
   price: { type: mongoose.Types.Decimal128, required: true },
-  // seat
+  
 });
 
 module.exports.Ticket = mongoose.model('Ticket', schema);

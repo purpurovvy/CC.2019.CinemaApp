@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Seat from './seats';
 import './screeningRoom.css';
-import {Button} from 'react-bootstrap';
+//import BuyTicket from './buyTicket'
+import {Button} from 'react-bootstrap'
 
 
 
@@ -37,16 +38,21 @@ async componentDidMount(){
     }
     renderSeats()
     {return this.state.seats.map((seat, i) => 
-            <Seat key={i} num={seat._id[1]} row={seat._id} ticket={seat.ticket} seat={seat}/>
+            <Seat key={i} id={seat._id} ticket={seat.ticket} seat={seat}/>
          )
      }
+    reserve(){
+
+    }
     render()
     {return (
         <div className="screening-room d-flex flex-column justify-contnt-center align-items-center" style={{marginTop: 20}}>
             <h3 style={{color: 'white'}}>Room: {this.state.room} </h3>
             <div className="screen">screen</div>
-            <div className={this.state.room}>{this.renderSeats()}</div> 
-            <Button variant="success">Buy now</Button>
+            <div className={this.state.room}>{this.renderSeats()}</div>
+            <Button variant="success">Buy now</Button> 
+            {/* <BuyTicket number={this.state.seats._id} onSubmit={this.onChoose} style={backgroundColor: ''}></BuyTicket> */}
+
         </div>
     )
 }

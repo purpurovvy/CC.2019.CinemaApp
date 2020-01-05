@@ -25,6 +25,8 @@ class Show extends React.Component {
       <div style={{margin: 20, border: 'solid, white, 2px'}}>
       {show.show.map(e => 
       <Link to={`/${e._id}/seats`} style={{margin: 10}}>{new Intl.DateTimeFormat('en-GB', { 
+                year:"2-digit",
+                month:"2-digit",
                 hour: "numeric",
                 minute:"numeric" 
             }).format(new Date(e.startDate))}</Link>)}
