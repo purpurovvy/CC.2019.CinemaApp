@@ -46,7 +46,7 @@ router.get('/my/:email', async (req, res) => {
   const  ticketsWithReferences = await getListOfTickets();
   const  result = await ticketTrim(ticketsWithReferences)
 
-    res.send(result);
+    res.send(JSON.stringify(result));
      
 })
 
