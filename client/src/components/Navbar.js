@@ -17,7 +17,7 @@ const Navbar = ({ isLoggedIn }) => (
                                     <li className="nav-item">
                                         <Link className="nav-link" to={"/my-account"}>My account</Link>
                                     </li>
-                                    <li className="nav-item">
+                                    <li className="nav-item">Hello there in best cinema ever !! :)
                                         <Link className="nav-link" to={"/sign-out"}>Logout</Link>
                                     </li>
                                 </Fragment>
