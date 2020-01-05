@@ -11,6 +11,8 @@ import MyAccount from "./components/myaccount";
 import { withAuthDefault } from "./components/auth";
 import { withNavbar } from "./components/Navbar";
 import Protected from './components/Protected'
+import Shows from './components/shows';
+import ScreeningRoom from './components/screeningRoom';
 
 class App extends React.Component {
   render() {
@@ -23,6 +25,8 @@ class App extends React.Component {
             <Route path="/sign-up" component={withNavbar(SignUp)} />
             <Route path="/my-account" component={withAuthDefault(withNavbar(MyAccount))} />
             <Route path="/protected" component={withAuthDefault(withNavbar(Protected))} />
+            <Route  path="/:id/seats" component={ScreeningRoom} />
+            <Route  path="/shows" component={Shows}/>
             <Route path="/sign-out" render={Logout} />
             <Redirect to="/" />
           </Switch>
