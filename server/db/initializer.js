@@ -8,6 +8,7 @@ module.exports = async () => {
   if (!(await User.countDocuments())) {
     const usersData = [
       {
+        _id : "5e0a2629aaf09c37482d86a3",
         email: 'user@gmail.com',
         password: 'hash-me',
         firstName: 'fName',
@@ -16,6 +17,7 @@ module.exports = async () => {
         wallet: 120.12,
       },
       {
+        _id: "5e0a2629aaf09c37482d86a4",
         email: 'admin@gmail.com',
         password: 'hash-me',
         firstName: 'fName',
