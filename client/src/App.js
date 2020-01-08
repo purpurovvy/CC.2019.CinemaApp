@@ -20,13 +20,13 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route exact path='/' component={withNavbar(Home)} />
+            {/* <Route exact path='/' component={withNavbar(Home)} /> */}
             <Route path="/sign-in" component={withNavbar(Login)} />
             <Route path="/sign-up" component={withNavbar(SignUp)} />
             <Route path="/my-account" component={withAuthDefault(withNavbar(MyAccount))} />
             <Route path="/protected" component={withAuthDefault(withNavbar(Protected))} />
-            <Route  path="/:id/seats" component={ScreeningRoom} />
-            <Route  path="/shows" component={Shows}/>
+            <Route  path="/:id/seats" component={withNavbar(ScreeningRoom)} />
+            <Route  exact path='/'  component={withNavbar(Shows)}/>
             <Route path="/sign-out" render={Logout} />
             <Redirect to="/" />
           </Switch>

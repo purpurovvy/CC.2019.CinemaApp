@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import ScreeningRoom from './screeningRoom'
 export default class Home extends Component {
     render() {
         return (

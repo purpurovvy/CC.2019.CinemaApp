@@ -11,20 +11,19 @@ class Seat extends Component {
          seatId: ''
          
      };
-     console.log(this.props)
+    
  }
  reserve = () => {
      if(!this.props.ticket) {
-         this.state.bgc === 'grey' ? this.setState({bgc: 'green'}) : this.setState({bgc: 'white'})
+         this.state.bgc === 'grey' ? this.setState({bgc: 'green'}) : this.setState({bgc: 'grey'})
      }
-     this.setState({seatId: this.props.id})
-     console.log (this.props.id)
+     this.props.onClick(this.props.id)
  }
 
 render()
 {return (
         <div>
-            <input className="seat" style={{backgroundColor: this.state.bgc}} onClick={this.reserve} value={this.state.seatId}></input>
+            <input className="seat" style={{backgroundColor: this.state.bgc}} onClick={this.reserve}></input>
         </div>
     )
 }
